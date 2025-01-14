@@ -13,3 +13,4 @@ plugins {
 rootProject.name = 'fusionj'
 include('app', 'list', 'utilities')
 include('datatypes')
+include('datasource')
