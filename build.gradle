@@ -1,0 +1,24 @@
+buildscript {
+    ext {
+        arrowVersion = "18.1.0"
+        flightGRPCVersion = "15.0.2"
+        hadoopVersion = "3.3.4"
+        parquetVersion =  "1.15.0"
+    }
+}
+
+plugins {
+    id("java")
+    id("java-library")
+    id("maven-publish")
+}
+
+group = "dev.hienph.fusionj"
+version = "0.1.0-SNAPSHOT"
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
