@@ -3,7 +3,7 @@ buildscript {
         arrowVersion = "18.1.0"
         flightGRPCVersion = "15.0.2"
         hadoopVersion = "3.3.4"
-        parquetVersion =  "1.15.0"
+        parquetVersion = "1.15.0"
     }
 }
 
@@ -20,5 +20,9 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+    }
+    test {
+        useJUnitPlatform()
+        jvmArgs("--add-opens", "java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED")
     }
 }

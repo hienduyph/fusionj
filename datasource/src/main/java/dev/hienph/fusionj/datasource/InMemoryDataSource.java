@@ -19,6 +19,7 @@ public record InMemoryDataSource(Schema schema, List<RecordBatch> data) implemen
     var iter = data.stream().map(batch ->
         new RecordBatch(schema, indices.stream().map(batch::field).toList())
     ).iterator();
+    return Sequence.of(iter);
   }
 
   @Override
