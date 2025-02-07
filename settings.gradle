@@ -14,3 +14,4 @@ rootProject.name = 'fusionj'
 include('app', 'list', 'utilities')
 include('datatypes')
 include('datasource')
+include('logical-plan')
