@@ -15,13 +15,16 @@ public record ArrowFieldVector(FieldVector field) implements ColumnVector {
 
   @Override
   public ArrowType getType() {
-    return switch ( field) {
+    return switch (field) {
       case BitVector ignored -> ArrowTypes.BooleanType;
       case TinyIntVector ignored -> ArrowTypes.Int8Type;
       case SmallIntVector ignored -> ArrowTypes.Int16Type;
       case IntVector ignored -> ArrowTypes.Int32Type;
-      case BigIntVector  ignored ->  ArrowTypes.Int64Type;
-      default ->  throw new IllegalStateException();
+      case BigIntVector ignored -> ArrowTypes.Int64Type;
+      case Float4Vector ignored -> ArrowTypes.FloatType;
+      case Float8Vector ignored -> ArrowTypes.DoubleType;
+      case VarCharVector ignored -> ArrowTypes.StringType;
+      default -> throw new IllegalStateException(String.format("unknown field type %s", field));
     };
   }
 
@@ -39,7 +42,7 @@ public record ArrowFieldVector(FieldVector field) implements ColumnVector {
       case BigIntVector b -> b.get(i);
       case Float4Vector b -> b.get(i);
       case Float8Vector b -> b.get(i);
-      case VarCharVector b -> b.isNull(i) ? null : new String(b.get(i)) ;
+      case VarCharVector b -> b.isNull(i) ? null : new String(b.get(i));
       default -> throw new IllegalStateException();
     };
   }

@@ -29,7 +29,8 @@ public class AddExpression extends MathExpression {
     if (arrowType == ArrowTypes.DoubleType) {
       return (Double) l + (Double) r;
     }
-    throw new IllegalStateException("unsupported data type in math expression: %s", arrowType);
+    throw new IllegalStateException(
+        String.format("unsupported data type in math expression: %s", arrowType));
   }
 
   @Override

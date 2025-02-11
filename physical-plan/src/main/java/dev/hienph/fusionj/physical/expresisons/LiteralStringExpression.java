@@ -11,4 +11,9 @@ public record LiteralStringExpression(String value) implements Expression {
   public ColumnVector evaluate(RecordBatch input) {
     return new LiteralValueVector(ArrowTypes.StringType, value, input.rowCount());
   }
+
+  @Override
+  public String toString() {
+    return String.format("'%s'", value);
+  }
 }

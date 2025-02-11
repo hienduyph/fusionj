@@ -21,4 +21,8 @@ public abstract class AggregateExpr implements LogicalExpr {
   public String toString() {
     return String.format("%s(%s)", name, expr);
   }
+
+  public LogicalExpr getExpr() {
+    return expr;
+  }
 }

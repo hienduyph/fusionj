@@ -1,0 +1,30 @@
+plugins {
+
+    // Support convention plugins written in Groovy. Convention plugins are build scripts in 'src/main' that automatically become available as plugins in the main build.
+    id 'groovy-gradle-plugin'
+
+    id 'buildlogic.java-application-conventions'
+}
+
+
+repositories {
+    // Use the plugin portal to apply community plugins in convention plugins.
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation project(":datatypes")
+    implementation project(":datasource")
+    implementation project(":logical-plan")
+    implementation project(":physical-plan")
+    implementation project(":fuzzer")
+    implementation "org.apache.arrow:arrow-memory:${arrowVersion}"
+    implementation "org.apache.arrow:arrow-vector:${arrowVersion}"
+
+    testImplementation "org.apache.arrow:arrow-memory-netty:${arrowVersion}"
+}
+
+test {
+    useJUnitPlatform()
+    jvmArgs("--add-opens", "java.base/java.nio=org.apache.arrow.memory.core,ALL-UNNAMED")
+}

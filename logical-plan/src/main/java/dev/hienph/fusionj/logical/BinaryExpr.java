@@ -18,4 +18,12 @@ public abstract class BinaryExpr implements LogicalExpr {
   public String toString() {
     return String.format("%s %s %s", left, op, right);
   }
+
+  public LogicalExpr getLeft() {
+    return left;
+  }
+
+  public LogicalExpr getRight() {
+    return right;
+  }
 }

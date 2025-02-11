@@ -10,8 +10,8 @@ import org.apache.arrow.vector.types.pojo.ArrowType;
 
 public abstract class BooleanExpression implements Expression {
 
-  private final Expression left;
-  private final Expression right;
+  protected final Expression left;
+  protected final Expression right;
 
   public BooleanExpression(Expression left, Expression right) {
     this.left = left;

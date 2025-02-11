@@ -22,5 +22,9 @@ public class Alias implements LogicalExpr {
   public String toString() {
     return String.format("%s as %s", expr, alias);
   }
+
+  public LogicalExpr getExpr() {
+    return expr;
+  }
 }
 
