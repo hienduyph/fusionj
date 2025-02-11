@@ -11,7 +11,7 @@ import org.apache.arrow.vector.VarCharVector;
 
 public record ArrowVectorBuilder(FieldVector fieldVector) {
 
-  public void SetValueCount(Integer n) {
+  public void setValueCount(Integer n) {
     this.fieldVector.setValueCount(n);
   }
 

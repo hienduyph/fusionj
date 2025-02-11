@@ -5,8 +5,8 @@ import dev.hienph.fusionj.datatypes.RecordBatch;
 
 public abstract class BinaryExpression implements Expression {
 
-  private final Expression l;
-  private final Expression r;
+  protected final Expression l;
+  protected final Expression r;
 
   public BinaryExpression(Expression l, Expression r) {
     this.r = r;
