@@ -1,11 +1,11 @@
-package dev.hienph.fusionj.physical;
+package dev.hienph.fusionj.executor.physical;
 
 import dev.hienph.fusionj.datatypes.ArrowTypes;
 import dev.hienph.fusionj.datatypes.Field;
 import dev.hienph.fusionj.datatypes.Schema;
 import dev.hienph.fusionj.fuzzer.Fuzzer;
-import dev.hienph.fusionj.physical.expresisons.ColumnExpression;
-import dev.hienph.fusionj.physical.expresisons.GtEqExpression;
+import dev.hienph.fusionj.executor.physical.expresisons.ColumnExpression;
+import dev.hienph.fusionj.executor.physical.expresisons.GtEqExpression;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

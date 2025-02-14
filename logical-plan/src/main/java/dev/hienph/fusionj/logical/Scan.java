@@ -1,6 +1,6 @@
 package dev.hienph.fusionj.logical;
 
-import dev.hienph.fusionj.datasource.DataSource;
+import dev.hienph.fusionj.executor.datasource.DataSource;
 import dev.hienph.fusionj.datatypes.Schema;
 import java.util.List;
 

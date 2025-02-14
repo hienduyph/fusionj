@@ -1,13 +1,13 @@
-package dev.hienph.fusionj.physical;
+package dev.hienph.fusionj.executor.physical;
 
-import dev.hienph.fusionj.datasource.Sequence;
+import dev.hienph.fusionj.executor.datasource.Sequence;
 import dev.hienph.fusionj.datatypes.ArrowFieldVector;
 import dev.hienph.fusionj.datatypes.ArrowVectorBuilder;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;
-import dev.hienph.fusionj.physical.expresisons.Accumulator;
-import dev.hienph.fusionj.physical.expresisons.AggregateExpression;
-import dev.hienph.fusionj.physical.expresisons.Expression;
+import dev.hienph.fusionj.executor.physical.expresisons.Accumulator;
+import dev.hienph.fusionj.executor.physical.expresisons.AggregateExpression;
+import dev.hienph.fusionj.executor.physical.expresisons.Expression;
 import org.apache.arrow.memory.RootAllocator;
 import org.apache.arrow.vector.VectorSchemaRoot;
 

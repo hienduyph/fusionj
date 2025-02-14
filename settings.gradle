@@ -11,11 +11,13 @@ plugins {
 }
 
 rootProject.name = 'fusionj'
-include('app', 'list', 'utilities')
 include('datatypes')
 include('datasource')
 include('logical-plan')
 include('physical-plan')
 include('execution')
 include('query-planner')
+include('optimizer')
+include('sql')
+include('executor')
 include("fuzzer")

@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.datasource;
+package dev.hienph.fusionj.executor.datasource;
 
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;

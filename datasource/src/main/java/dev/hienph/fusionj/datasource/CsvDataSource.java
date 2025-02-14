@@ -1,8 +1,8 @@
-package dev.hienph.fusionj.datasource;
+package dev.hienph.fusionj.executor.datasource;
 
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
-import dev.hienph.fusionj.datasource.utils.CsvAsSequence;
+import dev.hienph.fusionj.executor.datasource.utils.CsvAsSequence;
 import dev.hienph.fusionj.datatypes.ArrowTypes;
 import dev.hienph.fusionj.datatypes.Field;
 import dev.hienph.fusionj.datatypes.RecordBatch;

@@ -1,6 +1,6 @@
-package dev.hienph.fusionj.datasource;
+package dev.hienph.fusionj.executor.datasource;
 
-import dev.hienph.fusionj.datasource.utils.ParquetScan;
+import dev.hienph.fusionj.executor.datasource.utils.ParquetScan;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;
 import java.util.List;

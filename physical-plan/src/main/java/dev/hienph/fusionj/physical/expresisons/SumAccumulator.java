@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.physical.expresisons;
+package dev.hienph.fusionj.executor.physical.expresisons;
 
 public class SumAccumulator implements Accumulator {
 

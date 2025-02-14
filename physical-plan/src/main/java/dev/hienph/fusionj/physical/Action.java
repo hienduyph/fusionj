@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.physical;
+package dev.hienph.fusionj.executor.physical;
 
 public interface Action {
 }

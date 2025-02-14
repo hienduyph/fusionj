@@ -1,7 +1,7 @@
-package dev.hienph.fusionj.physical.expresisons;
+package dev.hienph.fusionj.executor.physical.expresisons;
 
 import dev.hienph.fusionj.datatypes.ArrowTypes;
-import dev.hienph.fusionj.physical.utils.Converts;
+import dev.hienph.fusionj.executor.physical.utils.Converts;
 import org.apache.arrow.vector.types.pojo.ArrowType;
 
 public class GtExpression extends BooleanExpression {

@@ -1,6 +1,6 @@
-package dev.hienph.fusionj.execution;
+package dev.hienph.fusionj.executor.execution;
 
-import dev.hienph.fusionj.datasource.Sequence;
+import dev.hienph.fusionj.executor.datasource.Sequence;
 import dev.hienph.fusionj.logical.LogicalExpr;
 import java.io.File;
 import java.util.List;
@@ -24,5 +24,4 @@ public class ExecutionTest {
     final var batch = batches.getFirst();
     Assertions.assertEquals("2,Gregg,Langford\n" + "3,John,Travis\n", batch.toCSV());
   }
-
 }

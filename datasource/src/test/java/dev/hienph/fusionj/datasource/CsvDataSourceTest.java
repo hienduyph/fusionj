@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.datasource;
+package dev.hienph.fusionj.executor.datasource;
 
 import com.google.common.collect.Streams;
 import dev.hienph.fusionj.datatypes.Field;

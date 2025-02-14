@@ -1,14 +1,15 @@
-package dev.hienph.fusionj.execution;
+package dev.hienph.fusionj.executor.execution;
 
-import dev.hienph.fusionj.datasource.CsvDataSource;
-import dev.hienph.fusionj.datasource.DataSource;
-import dev.hienph.fusionj.datasource.Sequence;
+import dev.hienph.fusionj.executor.datasource.CsvDataSource;
+import dev.hienph.fusionj.executor.datasource.DataSource;
+import dev.hienph.fusionj.executor.datasource.Sequence;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.logical.DataFrame;
 import dev.hienph.fusionj.logical.DataFrameImpl;
 import dev.hienph.fusionj.logical.LogicalPlan;
 import dev.hienph.fusionj.logical.Scan;
-import dev.hienph.fusionj.planner.QueryPlanner;
+import dev.hienph.fusionj.executor.optimizer.Optimizer;
+import dev.hienph.fusionj.executor.planner.QueryPlanner;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class ExecutionContext {
 
   public DataFrame csv(String filename) {
     return new DataFrameImpl(
-        new Scan(filename, new CsvDataSource(filename, null, true, batchSize), List.of()));
+      new Scan(filename, new CsvDataSource(filename, null, true, batchSize), List.of()));
   }
 
   public void register(String tableName, DataFrame df) {
@@ -48,7 +49,10 @@ public class ExecutionContext {
   }
 
   public Sequence<RecordBatch> execute(LogicalPlan plan) {
-    // todo optimizer plan
+    System.out.println("before optimize");
+    System.out.println(plan.pretty());
+    plan = new Optimizer().optimize(plan);
+    System.out.println("optmized ->");
     System.out.println(plan.pretty());
     final var physicalPlan = new QueryPlanner().createPhysicalPlan(plan);
     System.out.println(physicalPlan.pretty());

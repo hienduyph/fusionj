@@ -1,7 +1,24 @@
 package dev.hienph.fusionj.fuzzer;
 
-import dev.hienph.fusionj.datatypes.*;
-import dev.hienph.fusionj.logical.*;
+import dev.hienph.fusionj.datatypes.ArrowFieldVector;
+import dev.hienph.fusionj.datatypes.ArrowTypes;
+import dev.hienph.fusionj.datatypes.Field;
+import dev.hienph.fusionj.datatypes.RecordBatch;
+import dev.hienph.fusionj.datatypes.Schema;
+import dev.hienph.fusionj.logical.And;
+import dev.hienph.fusionj.logical.ColumnIndex;
+import dev.hienph.fusionj.logical.DataFrame;
+import dev.hienph.fusionj.logical.Eq;
+import dev.hienph.fusionj.logical.Gt;
+import dev.hienph.fusionj.logical.GtEq;
+import dev.hienph.fusionj.logical.LiteralDouble;
+import dev.hienph.fusionj.logical.LiteralLong;
+import dev.hienph.fusionj.logical.LiteralString;
+import dev.hienph.fusionj.logical.LogicalExpr;
+import dev.hienph.fusionj.logical.Lt;
+import dev.hienph.fusionj.logical.LtEq;
+import dev.hienph.fusionj.logical.Neq;
+import dev.hienph.fusionj.logical.Or;
 import org.apache.arrow.memory.RootAllocator;
 import org.apache.arrow.vector.*;
 import org.apache.arrow.vector.types.pojo.ArrowType;

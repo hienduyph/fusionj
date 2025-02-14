@@ -1,7 +1,7 @@
-package dev.hienph.fusionj.datasource.utils;
+package dev.hienph.fusionj.executor.datasource.utils;
 
 import com.univocity.parsers.csv.CsvParser;
-import dev.hienph.fusionj.datasource.Sequence;
+import dev.hienph.fusionj.executor.datasource.Sequence;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;
 import java.util.Iterator;
