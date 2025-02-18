@@ -44,16 +44,16 @@ public class SqlParser implements PrattParser {
     if (token == null) {
       return null;
     }
-    var expr = switch (token.type()) {
+    return switch (token.type()) {
       case Keyword.SELECT -> parseSelect();
       case Keyword.CAST -> parseCast();
-      case Keyword.MAX, Keyword.INT, Keyword.DOUBLE, Literal.IDENTIFIER, Literal.STRING ->
+      case Keyword.MAX, Keyword.INT, Keyword.DOUBLE, Literal.IDENTIFIER ->
         new SqlIdentifier(token.text());
+      case Literal.STRING -> new SqlString(token.text());
       case Literal.LONG -> new SqlLong(Long.parseLong(token.text()));
       case Literal.DOUBLE -> new SqlDouble(Double.parseDouble(token.text()));
       default -> throw new IllegalStateException(String.format("Unexpected token %s", token));
     };
-    return expr;
   }
 
   @Override

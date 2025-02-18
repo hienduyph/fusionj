@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.datasource.utils;
+package dev.hienph.fusionj.datasource.utils;
 
 import dev.hienph.fusionj.datatypes.ArrowFieldVector;
 import dev.hienph.fusionj.datatypes.RecordBatch;
@@ -25,7 +25,7 @@ public class ParquetIterator implements Iterator<RecordBatch> {
     var parquetSchema = reader.getFooter().getFileMetaData().getSchema();
     var arrowSchema = (new SchemaConverter()).fromParquet(parquetSchema).getArrowSchema();
     projectedArrowSchema = new Schema(
-        projectedColumns.stream().map(arrowSchema::findField).toList());
+      projectedColumns.stream().map(arrowSchema::findField).toList());
   }
 
   @Override
@@ -59,12 +59,12 @@ public class ParquetIterator implements Iterator<RecordBatch> {
     root.setRowCount(rows);
 
     var ballistaSchema = dev.hienph.fusionj.datatypes.SchemaConverter.fromArrow(
-        projectedArrowSchema);
+      projectedArrowSchema);
 
     var batchField = root.getFieldVectors().stream().map(ArrowFieldVector::new).toList();
     batch = Optional.of(new RecordBatch(
-        ballistaSchema,
-        batchField));
+      ballistaSchema,
+      batchField));
     for (int rowIndex = 0; rowIndex < rows; rowIndex++) {
       for (int projectionIndex = 0; projectionIndex < projectedColumns.size(); projectionIndex++) {
       }

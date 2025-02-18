@@ -1,13 +1,13 @@
 package dev.hienph.fusionj.logical;
 
-import dev.hienph.fusionj.executor.datasource.DataSource;
+import dev.hienph.fusionj.datasource.DataSource;
 import dev.hienph.fusionj.datatypes.Schema;
 import java.util.List;
 
 public record Scan(
-    String path,
-    DataSource dataSource,
-    List<String> projection
+  String path,
+  DataSource dataSource,
+  List<String> projection
 ) implements LogicalPlan {
 
   @Override
@@ -23,9 +23,9 @@ public record Scan(
   @Override
   public String toString() {
     if (projection.isEmpty()) {
-      return String.format("Scan %s; projection=None", path);
+      return String.format("Scan: %s; projection=None", path);
     }
-    return String.format("Scan %s; projection=%s", path, projection);
+    return String.format("Scan: %s; projection=%s", path, projection);
   }
 
   private Schema deriveSchema() {

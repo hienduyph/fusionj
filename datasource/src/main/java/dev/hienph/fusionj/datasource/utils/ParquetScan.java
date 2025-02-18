@@ -1,6 +1,6 @@
-package dev.hienph.fusionj.executor.datasource.utils;
+package dev.hienph.fusionj.datasource.utils;
 
-import dev.hienph.fusionj.executor.datasource.Sequence;
+import dev.hienph.fusionj.datasource.Sequence;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import java.io.IOException;
 import java.util.Iterator;
@@ -12,7 +12,7 @@ import org.apache.parquet.hadoop.util.HadoopInputFile;
 import org.apache.parquet.schema.MessageType;
 
 public class ParquetScan implements AutoCloseable,
-    Sequence<RecordBatch> {
+  Sequence<RecordBatch> {
 
   private final MessageType schema;
   private List<String> columns;
@@ -21,7 +21,7 @@ public class ParquetScan implements AutoCloseable,
   public ParquetScan(String filename, List<String> columns) {
     try {
       reader = ParquetFileReader.open(
-          HadoopInputFile.fromPath(new Path(filename), new Configuration()));
+        HadoopInputFile.fromPath(new Path(filename), new Configuration()));
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

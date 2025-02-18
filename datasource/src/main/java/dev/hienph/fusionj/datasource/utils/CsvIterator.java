@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.datasource.utils;
+package dev.hienph.fusionj.datasource.utils;
 
 import com.univocity.parsers.common.record.Record;
 import com.univocity.parsers.csv.CsvParser;
@@ -32,9 +32,9 @@ public class CsvIterator implements Iterator<RecordBatch> {
   private Boolean started = false;
 
   public CsvIterator(
-      Schema schema,
-      CsvParser parser,
-      Integer batchSize
+    Schema schema,
+    CsvParser parser,
+    Integer batchSize
   ) {
     this.schema = schema;
     this.parser = parser;
@@ -59,7 +59,7 @@ public class CsvIterator implements Iterator<RecordBatch> {
     next = nextBatch();
     if (out == null) {
       throw new NoSuchElementException(
-          "can not read past the end of " + CsvIterator.class.getSimpleName());
+        "can not read past the end of " + CsvIterator.class.getSimpleName());
     }
     return out;
   }
@@ -154,11 +154,11 @@ public class CsvIterator implements Iterator<RecordBatch> {
           });
         }
         default -> throw new IllegalStateException(
-            "No support for reading CSV columns with data type " + vector.toString());
+          "No support for reading CSV columns with data type " + vector.toString());
       }
       vector.setValueCount(rows.size());
     });
     return new RecordBatch(schema,
-        root.getFieldVectors().stream().map(ArrowFieldVector::new).toList());
+      root.getFieldVectors().stream().map(ArrowFieldVector::new).toList());
   }
 }

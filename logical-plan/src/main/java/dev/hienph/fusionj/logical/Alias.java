@@ -26,5 +26,9 @@ public class Alias implements LogicalExpr {
   public LogicalExpr getExpr() {
     return expr;
   }
+
+  public String getAlias() {
+    return alias;
+  }
 }
 

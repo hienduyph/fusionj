@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.datasource;
+package dev.hienph.fusionj.datasource;
 
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;
@@ -11,13 +11,13 @@ public record InMemoryDataSource(Schema schema, List<RecordBatch> data) implemen
   public Sequence<RecordBatch> scan(List<String> projection) {
     final var fields = schema.fields();
     final var indices = projection.stream()
-        .map(name -> IntStream.range(0, fields.size())
-            .filter(idx -> fields.get(idx).name().equals(name))
-            .findFirst()
-            .orElseThrow()
-        ).toList();
+      .map(name -> IntStream.range(0, fields.size())
+        .filter(idx -> fields.get(idx).name().equals(name))
+        .findFirst()
+        .orElseThrow()
+      ).toList();
     var iter = data.stream().map(batch ->
-        new RecordBatch(schema, indices.stream().map(batch::field).toList())
+      new RecordBatch(schema, indices.stream().map(batch::field).toList())
     ).iterator();
     return Sequence.of(iter);
   }

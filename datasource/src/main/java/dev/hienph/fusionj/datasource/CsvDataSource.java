@@ -1,8 +1,8 @@
-package dev.hienph.fusionj.executor.datasource;
+package dev.hienph.fusionj.datasource;
 
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
-import dev.hienph.fusionj.executor.datasource.utils.CsvAsSequence;
+import dev.hienph.fusionj.datasource.utils.CsvAsSequence;
 import dev.hienph.fusionj.datatypes.ArrowTypes;
 import dev.hienph.fusionj.datatypes.Field;
 import dev.hienph.fusionj.datatypes.RecordBatch;
@@ -27,10 +27,10 @@ public class CsvDataSource implements DataSource {
   private final String filename;
 
   public CsvDataSource(
-      String filename,
-      Schema schema,
-      Boolean hasHeaders,
-      Integer batchSize
+    String filename,
+    Schema schema,
+    Boolean hasHeaders,
+    Integer batchSize
   ) {
     this.hasHeaders = hasHeaders;
     this.batchSize = batchSize;
@@ -53,7 +53,7 @@ public class CsvDataSource implements DataSource {
     settings.setHeaderExtractionEnabled(hasHeaders);
     if (!hasHeaders) {
       settings.setHeaders(
-          readSchema.fields().stream().map(Field::name).toList().toArray(new String[0]));
+        readSchema.fields().stream().map(Field::name).toList().toArray(new String[0]));
     }
     var parser = buildParser(settings);
     parser.beginParsing(file);
@@ -94,12 +94,12 @@ public class CsvDataSource implements DataSource {
       parser.parseNext();
       var headers = Arrays.stream(parser.getContext().parsedHeaders()).filter(Objects::nonNull);
       var schema = hasHeaders ? new Schema(
-          headers.map(col -> new Field(col, ArrowTypes.StringType)).toList())
-          : new Schema(
-              IntStream.range(0, headers.toList().size())
-                  .mapToObj(
-                      i -> new Field("field_" + (i + 1), ArrowTypes.StringType))
-                  .toList());
+        headers.map(col -> new Field(col, ArrowTypes.StringType)).toList())
+        : new Schema(
+          IntStream.range(0, headers.toList().size())
+            .mapToObj(
+              i -> new Field("field_" + (i + 1), ArrowTypes.StringType))
+            .toList());
       parser.stopParsing();
       logger.info("done -> inferSchema()");
       return schema;

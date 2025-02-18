@@ -1,6 +1,6 @@
 package dev.hienph.fusionj.executor.execution;
 
-import dev.hienph.fusionj.executor.datasource.Sequence;
+import dev.hienph.fusionj.datasource.Sequence;
 import dev.hienph.fusionj.logical.LogicalExpr;
 import java.io.File;
 import java.util.List;
@@ -17,8 +17,8 @@ public class ExecutionTest {
   void employeeInCOUsingDataFrame() {
     var ctx = new ExecutionContext(Map.of());
     var df = ctx.csv(employeeCsv).filter(LogicalExpr.col("state").eq(LogicalExpr.lit("CO")))
-        .project(List.of(LogicalExpr.col("id"), LogicalExpr.col("first_name"),
-            LogicalExpr.col("last_name")));
+      .project(List.of(LogicalExpr.col("id"), LogicalExpr.col("first_name"),
+        LogicalExpr.col("last_name")));
     var batches = Sequence.stream(ctx.execute(df).iterator()).toList();
     Assertions.assertEquals(1, batches.size());
     final var batch = batches.getFirst();

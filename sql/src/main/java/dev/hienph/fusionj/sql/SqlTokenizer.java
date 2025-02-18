@@ -124,7 +124,7 @@ public class SqlTokenizer {
   }
 
   private Token scanChars(Integer startOffset, Character ch) {
-    var endOffset = getOffsetUntilTerminatedChar(ch, startOffset + 1);
-    return new Token(sql.substring(startOffset, endOffset), Literal.STRING, endOffset + 1);
+    int endOffset = getOffsetUntilTerminatedChar(ch, startOffset + 1);
+    return new Token(sql.substring(startOffset + 1, endOffset), Literal.STRING, endOffset + 1);
   }
 }

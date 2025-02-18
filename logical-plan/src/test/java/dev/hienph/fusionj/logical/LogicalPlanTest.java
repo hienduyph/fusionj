@@ -1,6 +1,6 @@
 package dev.hienph.fusionj.logical;
 
-import dev.hienph.fusionj.executor.datasource.CsvDataSource;
+import dev.hienph.fusionj.datasource.CsvDataSource;
 import java.io.File;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -18,8 +18,8 @@ public class LogicalPlanTest {
     var filterExpr = LogicalExpr.eq(LogicalExpr.col("state"), LogicalExpr.lit("CO"));
     var selection = new Selection(scan, filterExpr);
     var plan = new Projection(selection,
-        List.of(LogicalExpr.col("id"), LogicalExpr.col("first_name"),
-            LogicalExpr.col("last_name")));
+      List.of(LogicalExpr.col("id"), LogicalExpr.col("first_name"),
+        LogicalExpr.col("last_name")));
 
     System.out.println(LogicalPlan.format(plan));
 
