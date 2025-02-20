@@ -4,8 +4,13 @@ plugins {
     id 'groovy-gradle-plugin'
 
     id 'buildlogic.java-application-conventions'
+    id 'com.google.protobuf' version "0.9.4"
 }
-
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVersion}"
+    }
+}
 
 repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
@@ -17,12 +22,13 @@ dependencies {
     implementation project(":datasource")
     implementation project(":logical-plan")
     implementation project(":physical-plan")
-    implementation project(":query-planner")
-    implementation project(":optimizer")
-    implementation project(":fuzzer")
-    implementation project(":protobuf")
+
     implementation "org.apache.arrow:arrow-memory:${arrowVersion}"
     implementation "org.apache.arrow:arrow-vector:${arrowVersion}"
+
+    implementation "org.apache.arrow:flight-core:${arrowVersion}"
+
+    implementation("com.google.protobuf:protobuf-java:${protobufVersion}")
 
     testImplementation "org.apache.arrow:arrow-memory-netty:${arrowVersion}"
 }

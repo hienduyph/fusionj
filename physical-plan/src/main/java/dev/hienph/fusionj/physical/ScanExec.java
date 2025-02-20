@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.physical;
+package dev.hienph.fusionj.physical;
 
 import dev.hienph.fusionj.datasource.DataSource;
 import dev.hienph.fusionj.datasource.Sequence;
@@ -7,8 +7,8 @@ import dev.hienph.fusionj.datatypes.Schema;
 import java.util.List;
 
 public record ScanExec(
-  DataSource ds,
-  List<String> projection
+    DataSource ds,
+    List<String> projection
 ) implements PhysicalPlan {
 
   @Override

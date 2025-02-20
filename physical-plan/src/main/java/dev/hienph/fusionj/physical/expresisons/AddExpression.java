@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.physical.expresisons;
+package dev.hienph.fusionj.physical.expresisons;
 
 import dev.hienph.fusionj.datatypes.ArrowTypes;
 import org.apache.arrow.vector.types.pojo.ArrowType;
@@ -30,7 +30,7 @@ public class AddExpression extends MathExpression {
       return (Double) l + (Double) r;
     }
     throw new IllegalStateException(
-        String.format("unsupported data type in math expression: %s", arrowType));
+      String.format("unsupported data type in math expression: %s", arrowType));
   }
 
   @Override

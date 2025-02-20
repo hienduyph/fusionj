@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.physical.expresisons;
+package dev.hienph.fusionj.physical.expresisons;
 
 public record MinExpression(Expression expr) implements AggregateExpression {
 

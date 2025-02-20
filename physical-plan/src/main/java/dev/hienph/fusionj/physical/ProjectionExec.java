@@ -1,9 +1,9 @@
-package dev.hienph.fusionj.executor.physical;
+package dev.hienph.fusionj.physical;
 
 import dev.hienph.fusionj.datasource.Sequence;
 import dev.hienph.fusionj.datatypes.RecordBatch;
 import dev.hienph.fusionj.datatypes.Schema;
-import dev.hienph.fusionj.executor.physical.expresisons.Expression;
+import dev.hienph.fusionj.physical.expresisons.Expression;
 import java.util.List;
 
 public record ProjectionExec(PhysicalPlan input, Schema schema, List<Expression> expr) implements

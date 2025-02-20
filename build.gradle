@@ -4,6 +4,7 @@ buildscript {
         flightGRPCVersion = "15.0.2"
         hadoopVersion = "3.3.4"
         parquetVersion = "1.15.0"
+        protobufVersion = "4.29.2"
     }
 }
 

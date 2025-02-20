@@ -20,11 +20,13 @@ dependencies {
     implementation project(":query-planner")
     implementation project(":optimizer")
     implementation project(":fuzzer")
+    implementation project(":protobuf")
+    implementation project(":execution")
 
     implementation "org.apache.arrow:arrow-memory:${arrowVersion}"
     implementation "org.apache.arrow:arrow-vector:${arrowVersion}"
 
-    implementation "org.apache.arrow:flight-grpc:${arrowVersion}"
+    implementation "org.apache.arrow:flight-grpc:${flightGRPCVersion}"
     implementation "org.apache.arrow:flight-core:${arrowVersion}"
 
     testImplementation "org.apache.arrow:arrow-memory-netty:${arrowVersion}"

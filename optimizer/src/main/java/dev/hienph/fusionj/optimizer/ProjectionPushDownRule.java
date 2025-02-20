@@ -1,4 +1,4 @@
-package dev.hienph.fusionj.executor.optimizer;
+package dev.hienph.fusionj.optimizer;
 
 import dev.hienph.fusionj.logical.Aggregate;
 import dev.hienph.fusionj.logical.AggregateExpr;
